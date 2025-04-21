@@ -1,5 +1,5 @@
 
-# Nginx + Docker Flask App Setup
+# Project 5: Automated Configuration with Ansible (Provision Jenkins + Docker + Deploy App)
 
 This repository contains the setup to deploy an Nginx web server running a Flask app in Docker. The app is containerized with Docker, and Nginx is used as a reverse proxy to serve the Flask application.
 
