@@ -1,0 +1,31 @@
+---
+- name: Add Jenkins GPG key
+  apt_key:
+    url: https://pkg.jenkins.io/debian/jenkins.io-2023.key
+    state: present
+
+- name: Add Jenkins APT repository for Ubuntu
+  apt_repository:
+    repo: deb https://pkg.jenkins.io/debian binary/
+    state: present
+    filename: jenkins
+
+- name: Update APT package index
+  apt:
+    update_cache: yes
+
+- name: Install Java (Jenkins dependency)
+  apt:
+    name: openjdk-17-jdk
+    state: present
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: present
+
+- name: Enable and start Jenkins service
+  systemd:
+    name: jenkins
+    enabled: yes
+    state: started

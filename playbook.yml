@@ -1,0 +1,8 @@
+- name: Provision Jenkins CI Server with Docker and App
+  hosts: devserver
+  become: true
+  roles:
+    - common
+    - docker
+    - jenkins
+    - deploy_app

@@ -1,0 +1,15 @@
+---
+- name: Create app directory
+  file:
+    path: /opt/sample-app
+    state: directory
+
+- name: Copy Docker Compose file
+  copy:
+    src: docker-compose.yml
+    dest: /opt/sample-app/docker-compose.yml
+
+- name: Run Docker Compose
+  command: docker compose up -d
+  args:
+    chdir: /opt/sample-app
